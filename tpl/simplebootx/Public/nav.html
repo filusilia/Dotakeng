@@ -6,7 +6,7 @@
          <span class="icon-bar"></span>
          <span class="icon-bar"></span>
        </a>
-       <a class="brand" href="__ROOT__/"><img src="__TMPL__Public/images/logo.png"/></a>
+       <a class="brand" href="__ROOT__/"><img src="__TMPL__Public/images/logo.jpg" style="width: 160px;height: 50px;"/></a>
        <div class="nav-collapse collapse" id="main-menu">
        	<?php
 			$effected_id="";
@@ -40,8 +40,6 @@
 	           		<img src="__TMPL__/Public/images/headicon.png" class="headicon"/>登录<b class="caret"></b>
 	            </a>
 	            <ul class="dropdown-menu pull-right">
-	               <li><a href="{:U('api/oauth/login',array('type'=>'sina'))}"><i class="fa fa-weibo"></i> &nbsp;微博登录</a></li>
-	               <li><a href="{:U('api/oauth/login',array('type'=>'qq'))}"><i class="fa fa-qq"></i> &nbsp;QQ登录</a></li>
 	               <li><a href="{:u('user/login/index')}"><i class="fa fa-sign-in"></i> &nbsp;登录</a></li>
 	               <li class="divider"></li>
 	               <li><a href="{:u('user/register/index')}"><i class="fa fa-user"></i> &nbsp;注册</a></li>
