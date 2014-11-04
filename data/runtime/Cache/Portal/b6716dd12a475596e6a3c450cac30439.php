@@ -61,6 +61,8 @@
 	           		<img src="/dotakeng/tpl/simplebootx//Public/images/headicon.png" class="headicon"/>登录<b class="caret"></b>
 	            </a>
 	            <ul class="dropdown-menu pull-right">
+	               <!--<li><a href="<?php echo U('api/oauth/login',array('type'=>'sina'));?>"><i class="fa fa-weibo"></i> &nbsp;微博登录</a></li>-->
+	               <!--<li><a href="<?php echo U('api/oauth/login',array('type'=>'qq'));?>"><i class="fa fa-qq"></i> &nbsp;QQ登录</a></li>-->
 	               <li><a href="<?php echo u('user/login/index');?>"><i class="fa fa-sign-in"></i> &nbsp;登录</a></li>
 	               <li class="divider"></li>
 	               <li><a href="<?php echo u('user/register/index');?>"><i class="fa fa-user"></i> &nbsp;注册</a></li>
@@ -72,11 +74,11 @@
    </div>
  </div>
 <div class="container tc-main">
-	
-	
+
+
     <div class="pg-opt pin">
         <div class="container">
-            <h2><?php echo ($name); ?></h2>
+            <h2>我们来深入的了解一下彼此吧！</h2>
         </div>
     </div>
     <div class="row">
@@ -84,7 +86,7 @@
 			<div class="">
 				<?php $lists = sp_sql_posts_paged("cid:$cat_id;order:post_date DESC;",10); ?>
 				<?php if(is_array($lists['posts'])): $i = 0; $__LIST__ = $lists['posts'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i; $smeta=json_decode($vo['smeta'], true); ?>
-				
+
 				<div class="list-boxes">
 					<h2><a href="<?php echo U('article/index',array('id'=>$vo['tid']));?>"><?php echo ($vo["post_title"]); ?></a></h2>
 					<p><?php echo ($vo["post_excerpt"]); ?></p>
@@ -101,7 +103,7 @@
 						<a class="btn btn-warning pull-right" href="<?php echo U('article/index',array('id'=>$vo['tid']));?>">查看更多</a>
 					</div>
 				</div><?php endforeach; endif; else: echo "" ;endif; ?>
-				
+
 			</div>
 			<div class="pagination">
 				<ul>
@@ -110,14 +112,8 @@
 			</div>
 		</div>
 		<div class="span3">
-			<div class="tc-box first-box">
-			<div class="headtitle">
-          		<h2>分享</h2>
-          	</div>
-			<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tqf" data-cmd="tqf" title="分享到腾讯朋友"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a></div>
-			<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=86835285.js?cdnversion='+~(-new Date()/36e5)];</script>          
-        	</div>
-        	
+
+
         	<div class="tc-box">
 	        	<div class="headtitle">
 	        		<h2>热门文章</h2>
@@ -145,21 +141,7 @@
 	                    </div><?php endforeach; endif; ?>
                 </div>
 			</div>
-			
-			<div class="tc-box">
-	        	<div class="headtitle">
-	        		<h2>最新加入</h2>
-	        	</div>
-	        	<?php $last_users=sp_get_users("field:*;limit:0,8;order:create_time desc;"); ?>
-	        	<ul class="list-unstyled tc-photos margin-bottom-30">
-	        		<?php if(is_array($last_users)): foreach($last_users as $key=>$vo): ?><li>
-	                    <a href="<?php echo U('user/index/index',array('id'=>$vo['id']));?>">
-	                    <img alt="" src="<?php echo U('user/public/avatar',array('id'=>$vo['id']));?>">
-	                    </a>
-                    </li><?php endforeach; endif; ?>
-                </ul>
-			</div>
-			
+
 			<div class="tc-box">
 	        	<div class="headtitle">
 	        		<h2>最新发布</h2>
@@ -171,7 +153,7 @@
 				            <dt>
 					            <a class="img-wraper" href="<?php echo U('article/index',array('id'=>$vo['tid']));?>">
 					            	<?php if(empty($smeta['thumb'])): ?><img src="/dotakeng/tpl/simplebootx/Public/images/default_tupian4.png" class="img-responsive" alt="<?php echo ($vo["post_title"]); ?>"/>
-									<?php else: ?> 
+									<?php else: ?>
 										<img src="<?php echo sp_get_asset_upload_path($smeta['thumb']);?>" class="img-responsive img-thumbnail" alt="<?php echo ($vo["post_title"]); ?>" /><?php endif; ?>
 					            </a>
 				            </dt>
@@ -179,7 +161,35 @@
 				        </dl><?php endforeach; endif; ?>
 		        </div>
 			</div>
-			
+
+            <!--<div class="tc-box first-box">-->
+                <!--<div class="headtitle">-->
+                    <!--<h2>分享</h2>-->
+                <!--</div>-->
+                <!--<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a>-->
+                    <!--<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>-->
+                    <!--<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>-->
+                    <!--<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>-->
+                    <!--<a href="#" class="bds_tqf" data-cmd="tqf" title="分享到腾讯朋友"></a>-->
+                    <!--<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>-->
+                    <!--<a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a></div>-->
+                <!--<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=86835285.js?cdnversion='+~(-new Date()/36e5)];</script>-->
+            <!--</div>-->
+
+            <div class="tc-box">
+                <div class="headtitle">
+                    <h2>最新加入</h2>
+                </div>
+                <?php $last_users=sp_get_users("field:*;limit:0,8;order:create_time desc;"); ?>
+                <ul class="list-unstyled tc-photos margin-bottom-30">
+                    <?php if(is_array($last_users)): foreach($last_users as $key=>$vo): ?><li>
+                            <a href="<?php echo U('user/index/index',array('id'=>$vo['id']));?>">
+                                <img alt="" src="<?php echo U('user/public/avatar',array('id'=>$vo['id']));?>">
+                            </a>
+                        </li><?php endforeach; endif; ?>
+                </ul>
+            </div>
+
 			<?php $ad=sp_getad("portal_list_right_aside"); ?>
 			<?php if(!empty($ad)): ?><div class="tc-box">
 	        	<div class="headtitle">
@@ -191,14 +201,14 @@
 			</div><?php endif; ?>
 		</div>
     </div>
-    
-    
+
+
     <br><br><br>
 <!-- Footer
       ================================================== -->
 <hr>
 
-<div id="footer" style="font-size: 6px;">
+<div id="footer" style="font-size: 8px;">
     <div class="links">
         <?php $links=sp_getlinks(); ?>
         <?php if(is_array($links)): foreach($links as $key=>$vo): ?><a href="<?php echo ($vo["link_url"]); ?>" target="<?php echo ($vo["link_target"]); ?>"><?php echo ($vo["link_name"]); ?></a><?php endforeach; endif; ?>
@@ -210,14 +220,14 @@
         Based on <a href="http://getbootstrap.com/2.3.2/" target="_blank">Bootstrap</a>. Icons from <a
             href="http://fortawesome.github.com/Font-Awesome/" target="_blank">Font Awesome</a>.<br/>
     Author: ilia.
-    tel:13206666364</p>
+    <!--tel:13206666364</p>-->
 </div>
 <div id="backtotop"><i class="fa fa-arrow-circle-up"></i></div>
 <?php echo ($site_tongji); ?>
 
 </div>
 
-    
+
 <!-- JavaScript -->
 <script type="text/javascript">
 //全局变量

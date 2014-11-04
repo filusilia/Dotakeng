@@ -61,6 +61,8 @@
 	           		<img src="/dotakeng/tpl/simplebootx//Public/images/headicon.png" class="headicon"/>登录<b class="caret"></b>
 	            </a>
 	            <ul class="dropdown-menu pull-right">
+	               <!--<li><a href="<?php echo U('api/oauth/login',array('type'=>'sina'));?>"><i class="fa fa-weibo"></i> &nbsp;微博登录</a></li>-->
+	               <!--<li><a href="<?php echo U('api/oauth/login',array('type'=>'qq'));?>"><i class="fa fa-qq"></i> &nbsp;QQ登录</a></li>-->
 	               <li><a href="<?php echo u('user/login/index');?>"><i class="fa fa-sign-in"></i> &nbsp;登录</a></li>
 	               <li class="divider"></li>
 	               <li><a href="<?php echo u('user/register/index');?>"><i class="fa fa-user"></i> &nbsp;注册</a></li>
@@ -76,7 +78,7 @@
 	
     <div class="pg-opt pin">
         <div class="container">
-            <h2><?php echo ($name); ?></h2>
+            <h2>用我丰富的经验打败你！</h2>
         </div>
     </div>
     
@@ -132,7 +134,7 @@
       ================================================== -->
 <hr>
 
-<div id="footer" style="font-size: 6px;">
+<div id="footer" style="font-size: 8px;">
     <div class="links">
         <?php $links=sp_getlinks(); ?>
         <?php if(is_array($links)): foreach($links as $key=>$vo): ?><a href="<?php echo ($vo["link_url"]); ?>" target="<?php echo ($vo["link_target"]); ?>"><?php echo ($vo["link_name"]); ?></a><?php endforeach; endif; ?>
@@ -144,7 +146,7 @@
         Based on <a href="http://getbootstrap.com/2.3.2/" target="_blank">Bootstrap</a>. Icons from <a
             href="http://fortawesome.github.com/Font-Awesome/" target="_blank">Font Awesome</a>.<br/>
     Author: ilia.
-    tel:13206666364</p>
+    <!--tel:13206666364</p>-->
 </div>
 <div id="backtotop"><i class="fa fa-arrow-circle-up"></i></div>
 <?php echo ($site_tongji); ?>
