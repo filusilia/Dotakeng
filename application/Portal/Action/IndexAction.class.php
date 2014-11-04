@@ -10,7 +10,10 @@ class IndexAction extends HomeBaseAction {
 	public function index() {
     	$this->display(":index");
     }
-    
+
+    public function add_article() {
+        $this->display(":add_article");
+    }
     function test(){
     	echo unserialize("ddd");
     }

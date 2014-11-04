@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{$post_title} {$site_name} </title>
+    <meta name="keywords" content="{$post_keywords}" />
+    <meta name="description" content="{$post_excerpt}">
+    <tc_include file="Public:head" />
+    <style>
+        #article_content img{height:auto !important}
+    </style>
+    <script type="text/javascript" src="../Public/js/stickUp.js"></script>
+</head>
+<body class="">
+<tc_include file="Public:nav" />
+<div class="container tc-main">
+    <div class="row">
+        <div class="span9">
+            <img alt="140x140" src="__TMPL__Public/images/logo.jpg" class="xxxxx" />
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span4">
+                        <img alt="140x140" src="__TMPL__Public/images/logo.jpg" class="img-rounded" />
+                    </div>
+                    <div class="span8">
+                        <p>
+                            <em>Git</em>是一个分布式的版本控制系统，最初由<strong>Linus Torvalds</strong>编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在Ruby社区中。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="span3">
+            <!--<div class="tc-box first-box">-->
+            <!--<div class="headtitle">-->
+            <!--<h2>分享</h2>-->
+            <!--</div>-->
+            <!--<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a></div>-->
+            <!--<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"32"},"share":{},"image":{"viewList":["weixin","tsina","qzone","tqq","renren"],"viewText":"分享到：","viewSize":"32"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","tsina","qzone","tqq","renren"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>-->
+            <!--</div>-->
+            <div class="tc-box">
+                <form class="form-search">
+                    <input class="input-medium search-query" type="text" /> <button type="submit" class="btn">文章搜索</button>
+                </form>
+            </div>
+            <div class="tc-box">
+                <div class="headtitle">
+                    <h2>热门文章</h2>
+                </div>
+                <div class="ranking">
+                    <php>
+                        $hot_articles=sp_sql_posts("cid:$portal_index_lastnews;field:post_title,post_excerpt,tid,smeta;order:post_hits desc;limit:5;");
+                    </php>
+                    <ul class="unstyled">
+                        <foreach name="hot_articles" item="vo">
+                            <php>$top=$key<3?"top3":"";</php>
+                            <li class="{$top}"><i>{$key+1}</i><a title="{$vo.post_title}" href="{:U('article/index',array('id'=>$vo['tid']))}">{$vo.post_title}</a></li>
+                        </foreach>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tc-box">
+                <div class="headtitle">
+                    <h2>最新加入</h2>
+                </div>
+                <php>
+                    $last_users=sp_get_users("field:*;limit:0,8;order:create_time desc;");
+                </php>
+                <ul class="list-unstyled tc-photos margin-bottom-30">
+                    <foreach name="last_users" item="vo">
+                        <li>
+                            <a href="{:U('user/index/index',array('id'=>$vo['id']))}">
+                                <img alt="" src="{:U('user/public/avatar',array('id'=>$vo['id']))}">
+                            </a>
+                        </li>
+                    </foreach>
+                </ul>
+            </div>
+
+            <div class="tc-box">
+                <div class="headtitle">
+                    <h2>最新评论</h2>
+                </div>
+                <div class="comment-ranking">
+                    <php>$last_comments=sp_get_comments("field:*;limit:0,5;order:createtime desc;");</php>
+                    <foreach name="last_comments" item="vo">
+                        <div class="comment-ranking-inner">
+                            <i class="fa fa-comment"></i>
+                            <a href="{:U('user/index/index',array('id'=>$vo['uid']))}">{$vo.full_name}:</a>
+                            <span>{$vo.content}</span>
+                            <a href="__ROOT__/{$vo.url}#comment{$vo.id}">查看原文</a>
+                            <span class="comment-time">{:date('m月d日  H:i',strtotime($vo['createtime']))}</span>
+                        </div>
+                    </foreach>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <tc_include file="Public:footer"/>
+</div>
+
+<tc_include file="Public:scripts"/>
+
+</body>
+<script type="text/javascript">
+    //initiating jQuery
+    jQuery(function($) {
+        $(document).ready( function() {
+            $('.xxxxx').stickUp();
+        });
+    });
+</script>
+</html>

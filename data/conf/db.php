@@ -12,8 +12,8 @@ return array(
     'DB_PORT' => '3306',
     'DB_PREFIX' => 'dk_',
     //密钥
-    "AUTHCODE" => 'aZyRwpOMrmQ16RBrTj',
+    "AUTHCODE" => 'SIfv7GcTxH3DvSeWC3',
     //cookies
-    "COOKIE_PREFIX" => 'Z0nk9X_',
+    "COOKIE_PREFIX" => 'O3U6Js_',
 );
 ?>
