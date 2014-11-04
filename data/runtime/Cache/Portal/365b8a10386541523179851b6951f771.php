@@ -132,7 +132,7 @@
       ================================================== -->
 <hr>
 
-<div id="footer" style="float: right;font-size: 6px;">
+<div id="footer" style="font-size: 6px;">
     <div class="links">
         <?php $links=sp_getlinks(); ?>
         <?php if(is_array($links)): foreach($links as $key=>$vo): ?><a href="<?php echo ($vo["link_url"]); ?>" target="<?php echo ($vo["link_target"]); ?>"><?php echo ($vo["link_name"]); ?></a><?php endforeach; endif; ?>

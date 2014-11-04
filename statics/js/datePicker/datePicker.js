@@ -17,11 +17,11 @@
 			format 		: 'yyyy-mm-dd',
 			selectors 	: true,
 			time		: false,
-			yearRange 	: [-200, 200],
+			yearRange 	: [-46, 1],
 			lang 		: 'zh-CN',
 			offset : [0, 0],
 			speed : 0,
-			firstDay : 0, // The first day of the week, Sun = 0, Mon = 1, ...
+			firstDay : 1, // The first day of the week, Sun = 0, Mon = 1, ...
 			min : undefined,
 			max : undefined,
 			trigger : false,

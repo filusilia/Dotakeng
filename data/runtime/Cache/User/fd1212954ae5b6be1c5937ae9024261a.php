@@ -47,7 +47,7 @@
          <span class="icon-bar"></span>
          <span class="icon-bar"></span>
        </a>
-       <a class="brand" href="/dotakeng/"><img src="/dotakeng/tpl/simplebootx/Public/images/logo.png"/></a>
+       <a class="brand" href="/dotakeng/"><img src="/dotakeng/tpl/simplebootx/Public/images/logo.jpg" style="width: 160px;height: 50px;"/></a>
        <div class="nav-collapse collapse" id="main-menu">
        	<?php
  $effected_id=""; $filetpl="<a href='\$href' target='\$target'>\$label</a>"; $foldertpl="<a href='\$href' target='\$target' class='dropdown-toggle' data-toggle='dropdown'>\$label <b class='caret'></b></a>"; $ul_class="dropdown-menu" ; $li_class="" ; $style="nav"; $showlevel=6; $dropdown='dropdown'; echo sp_get_menu("main",$effected_id,$filetpl,$foldertpl,$ul_class,$li_class,$style,$showlevel,$dropdown); ?>
@@ -69,8 +69,8 @@
 	           		<img src="/dotakeng/tpl/simplebootx//Public/images/headicon.png" class="headicon"/>登录<b class="caret"></b>
 	            </a>
 	            <ul class="dropdown-menu pull-right">
-	               <li><a href="<?php echo U('api/oauth/login',array('type'=>'sina'));?>"><i class="fa fa-weibo"></i> &nbsp;微博登录</a></li>
-	               <li><a href="<?php echo U('api/oauth/login',array('type'=>'qq'));?>"><i class="fa fa-qq"></i> &nbsp;QQ登录</a></li>
+	               <!--<li><a href="<?php echo U('api/oauth/login',array('type'=>'sina'));?>"><i class="fa fa-weibo"></i> &nbsp;微博登录</a></li>-->
+	               <!--<li><a href="<?php echo U('api/oauth/login',array('type'=>'qq'));?>"><i class="fa fa-qq"></i> &nbsp;QQ登录</a></li>-->
 	               <li><a href="<?php echo u('user/login/index');?>"><i class="fa fa-sign-in"></i> &nbsp;登录</a></li>
 	               <li class="divider"></li>
 	               <li><a href="<?php echo u('user/register/index');?>"><i class="fa fa-user"></i> &nbsp;注册</a></li>
@@ -89,7 +89,7 @@
 	<a class="list-group-item" href="<?php echo u('user/profile/edit');?>"><i class="fa fa-list-alt"></i> 修改资料</a>
 	<a class="list-group-item" href="<?php echo u('user/profile/password');?>"><i class="fa fa-lock"></i> 修改密码</a>
 	<a class="list-group-item" href="<?php echo u('user/profile/avatar');?>"><i class="fa fa-user"></i> 编辑头像</a>
-	<a class="list-group-item" href="<?php echo u('user/profile/bang');?>"><i class="fa fa-exchange"></i> 绑定账号</a>
+	<!--<a class="list-group-item" href="<?php echo u('user/profile/bang');?>"><i class="fa fa-exchange"></i> 绑定账号</a>-->
 	<a class="list-group-item" href="<?php echo u('user/favorite/index');?>"><i class="fa fa-star-o"></i> 我的收藏</a>
 	<a class="list-group-item" href="<?php echo u('comment/comment/index');?>"><i class="fa fa-comments-o"></i> 我的评论</a>
 </div>
@@ -118,7 +118,7 @@
                                    			<div class="control-group">
                                    				<label class="control-label" for="input-sex">性别</label>
                                    				<div class="controls">
-                                   				<?php $sexs=array("0"=>"保密","1"=>"程序猿","2"=>"程序媛"); ?>
+                                   				<?php $sexs=array("0"=>"保密","1"=>"男","2"=>"女","3"=>"秀吉"); ?>
                                    					<?php echo ($sexs[$sex]); ?>
                                    				</div>
                                    			</div>
@@ -128,12 +128,12 @@
                                    					<?php echo ((isset($birthday) && ($birthday !== ""))?($birthday):'未填写'); ?>
                                    				</div>
                                    			</div>
-                                   			<div class="control-group">
-                                   				<label class="control-label" for="input-user_url">个人网址</label>
-                                   				<div class="controls">
-                                   					<?php echo ((isset($user_url) && ($user_url !== ""))?($user_url):'未填写'); ?>
-                                   				</div>
-                                   			</div>
+                                   			<!--<div class="control-group">-->
+                                   				<!--<label class="control-label" for="input-user_url">个人网址</label>-->
+                                   				<!--<div class="controls">-->
+                                   					<!--<?php echo ((isset($user_url) && ($user_url !== ""))?($user_url):'未填写'); ?>-->
+                                   				<!--</div>-->
+                                   			<!--</div>-->
                                    			<div class="control-group">
                                    				<label class="control-label" for="input-signature">个性签名</label>
                                    				<div class="controls">
@@ -155,21 +155,24 @@
 		<br><br><br>
 <!-- Footer
       ================================================== -->
-      <hr>
+<hr>
 
-      <div id="footer">
-        <div class="links">
+<div id="footer" style="font-size: 6px;">
+    <div class="links">
         <?php $links=sp_getlinks(); ?>
         <?php if(is_array($links)): foreach($links as $key=>$vo): ?><a href="<?php echo ($vo["link_url"]); ?>" target="<?php echo ($vo["link_target"]); ?>"><?php echo ($vo["link_name"]); ?></a><?php endforeach; endif; ?>
-        </div>
-        <p>
-        Made by <a href="http://www.thinkcmf.com">ThinkCMF</a>
-        Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" rel="nofollow" target="_blank">Apache License v2.0</a>.<br/>
-        Based on <a href="http://getbootstrap.com/2.3.2/" target="_blank">Bootstrap</a>.  Icons from <a href="http://fortawesome.github.com/Font-Awesome/" target="_blank">Font Awesome</a>
-        </p>
-      </div>
-      <div id="backtotop"><i class="fa fa-arrow-circle-up"></i></div>
-      <?php echo ($site_tongji); ?>
+    </div>
+    <p>
+        Made by <a href="http://www.thinkcmf.com">ThinkCMF</a>.
+        Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" rel="nofollow" target="_blank">Apache
+        License v2.0</a>.<br/>
+        Based on <a href="http://getbootstrap.com/2.3.2/" target="_blank">Bootstrap</a>. Icons from <a
+            href="http://fortawesome.github.com/Font-Awesome/" target="_blank">Font Awesome</a>.<br/>
+    Author: ilia.
+    tel:13206666364</p>
+</div>
+<div id="backtotop"><i class="fa fa-arrow-circle-up"></i></div>
+<?php echo ($site_tongji); ?>
 
 
 	</div>

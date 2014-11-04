@@ -31,7 +31,8 @@
 		#backtotop:hover{color:#333}
 	</style>
 </head>
-<body class="body-white" id="top">
+
+<body class="body-white">
 	<div class="navbar navbar-fixed-top">
    <div class="navbar-inner">
      <div class="container">
@@ -75,55 +76,59 @@
    </div>
  </div>
 
-		<div class="container tc-main">
-                <div class="row">
-                    <div class="span3">
-	                    <div class="list-group">
-	<a class="list-group-item" href="<?php echo u('user/profile/edit');?>"><i class="fa fa-list-alt"></i> 修改资料</a>
-	<a class="list-group-item" href="<?php echo u('user/profile/password');?>"><i class="fa fa-lock"></i> 修改密码</a>
-	<a class="list-group-item" href="<?php echo u('user/profile/avatar');?>"><i class="fa fa-user"></i> 编辑头像</a>
-	<!--<a class="list-group-item" href="<?php echo u('user/profile/bang');?>"><i class="fa fa-exchange"></i> 绑定账号</a>-->
-	<a class="list-group-item" href="<?php echo u('user/favorite/index');?>"><i class="fa fa-star-o"></i> 我的收藏</a>
-	<a class="list-group-item" href="<?php echo u('comment/comment/index');?>"><i class="fa fa-comments-o"></i> 我的评论</a>
-</div>
-                    </div>
-                    <div class="span9">
-                           <div class="tabs">
-                               <ul class="nav nav-tabs">
-                                   <li class="active"><a href="#one" data-toggle="tab"><i class="fa fa-lock"></i> 修改密码</a></li>
-                               </ul>
-                               <div class="tab-content">
-                                   <div class="tab-pane active" id="one">
-                                   		<form class="form-horizontal J_ajaxForm" action="<?php echo u('profile/password_post');?>" method="post">
-                                   			<div class="control-group">
-                                   				<label class="control-label" for="input-old_password">原始密码</label>
-                                   				<div class="controls">
-                                   					<input type="password" id="input-old_password" placeholder="原始密码" name="old_password">
-                                   				</div>
-                                   			</div>
-                                   			<div class="control-group">
-                                   				<label class="control-label" for="input-password">新密码</label>
-                                   				<div class="controls">
-                                   					<input type="password" id="input-password" placeholder="新密码" name="password">
-                                   				</div>
-                                   			</div>
-                                   			<div class="control-group">
-                                   				<label class="control-label" for="input-repassword">重复密码</label>
-                                   				<div class="controls">
-                                   					<input type="password" id="input-repassword" placeholder="重复密码" name="repassword">
-                                   				</div>
-                                   			</div>
-                                   			<div class="control-group">
-                                   				<div class="controls">
-                                   					<button type="submit" class="btn J_ajax_submit_btn">保存</button>
-                                   				</div>
-                                   			</div>
-                                   		</form>
-                                   </div>
-                               </div>							
-                           </div>
-                    </div>
-                </div>
+	<div class="container tc-main">
+		<div class="row">
+			<div class="span6 offset3">
+				<h2 class="text-center">用户登录</h2>
+				<form class="form-horizontal J_ajaxForms" action="<?php echo U('user/login/dologin');?>" method="post">
+					<div class="control-group">
+						<label class="control-label" for="input_username">账号</label>
+						<div class="controls">
+							<input type="text" id="input_username" name="username" placeholder="请输入用户名或者邮箱" class="span3">
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="input_password">密码</label>
+						<div class="controls">
+							<input type="password" id="input_password" name="password" placeholder="请输入密码" class="span3">
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="input_verify">验证码</label>
+						<div class="controls">
+							<input type="text" id="input_verify" name="verify"  placeholder="请输入验证码" class="span3">
+							<?php echo sp_verifycode_img('code_len=4&font_size=15&width=100&height=35&charset=1234567890');?>
+						</div>
+					</div>
+					<div class="control-group" style="display: none">
+						<label class="control-label" for="input_repassword"></label>
+						<div class="controls">
+							<label class="checkbox persistent"><input type="checkbox" name="terms" value="1" checked>我同意
+								<a href="#">网站内容服务条款</a></label>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="input_repassword"></label>
+						<div class="controls">
+							<button class="btn btn-primary J_ajax_submit_btn" type="submit">确定</button>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="input_repassword"></label>
+						<div class="controls">
+							<ul class="inline">
+								<li><a href="<?php echo U('user/register/index');?>">现在注册</a></li>
+								<li><a href="<?php echo U('user/login/forgot_password');?>">忘记密码</a></li>
+							</ul>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
 
 		<br><br><br>
 <!-- Footer

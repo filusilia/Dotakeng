@@ -40,8 +40,8 @@ class RegisterAction extends HomeBaseAction {
     		$this->error('用户名中包含'.$stripChar.'等非法字符！');
     	}
     	
-    	if(strlen($password) < 5 || strlen($password) > 20){
-    		$this->error("密码长度至少5位，最多20位！");
+    	if(strlen($password) < 6 || strlen($password) > 18){
+    		$this->error("密码长度至少6位，最多18位！");
     	}
     	
 
@@ -82,6 +82,7 @@ class RegisterAction extends HomeBaseAction {
     					'last_login_time' => date("Y-m-d H:i:s"),
     					'user_status' => $need_email_active?2:1,
     					"user_type"=>2,
+                        "birthday"=> date("Y-m-d"),
     			);
     			$rst = $users_model->add($data);
     			if($rst){

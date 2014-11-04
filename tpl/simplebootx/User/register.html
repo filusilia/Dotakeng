@@ -7,7 +7,13 @@
 <meta name="author" content="ThinkCMF">
 <tc_include file="Public:head" />
 </head>
-
+<style type="text/css">
+    .input_email_tips{
+        color: #ff0000;
+        font-size: 10px;
+        font-family: sans-serif;
+    }
+</style>
 <body class="body-white">
 	<tc_include file="Public:nav" />
 
@@ -26,8 +32,10 @@
 					<div class="control-group">
 						<label class="control-label" for="input_email">邮箱</label>
 						<div class="controls">
-							<input type="text" id="input_email" name="email" placeholder="请输入邮箱" class="span3">
+							<input type="text" id="input_email" name="email" placeholder="请输入邮箱" class="span3"><br>
+                            <span class="input_email_tips" id="input_email_tips">*请注意，邮箱是无法修改的，请您在注册时注意。</span>
 						</div>
+
 					</div>
 
 					<div class="control-group">
