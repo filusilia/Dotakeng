@@ -105,7 +105,7 @@
 					<div class="control-group" style="display: none">
 						<label class="control-label" for="input_repassword"></label>
 						<div class="controls">
-							<label class="checkbox persistent"><input type="checkbox" name="terms" value="1" checked>我同意
+							<label class="checkbox persistent"><input type="checkbox" name="terms" value="1" >我同意
 								<a href="#">网站内容服务条款</a></label>
 						</div>
 					</div>
